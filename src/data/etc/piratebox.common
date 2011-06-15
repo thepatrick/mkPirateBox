@@ -296,17 +296,15 @@ pb_update() {
   [ -d "$pb_share" ] || mkdir -p "$pb_share"
   mkdir -p "$pb_share"
   cd "$pb_share"
-  wget http://daviddarts.com/piratebox/piratebox-logo.png -O piratebox-logo.png
-  wget http://daviddarts.com/piratebox/.READ.ME.htm -O .READ.ME.htm
-  wget http://daviddarts.com/piratebox/.BACK.TO.MENU.htm -O .BACK.TO.MENU.htm
-  # adjust hostname
-  sed -i "s#http://piratebox#http://$pb_hostname#g" .READ.ME.htm
-  sed -i "s#http://piratebox#http://$pb_hostname#g" .BACK.TO.MENU.htm
-
+  cp /usr/share/piratebox/base/* .
+  
   # install PirateBox droopy port
   [ -d /usr/local/bin ] || mkdir -p /usr/local/bin
   cd /usr/local/bin
-  wget http://daviddarts.com/piratebox/droopy -O droopy
+  cp /usr/share/piratebox/droopy droopy
+  
+  # adjust hostname
+  sed -i "s#emma.local:8080#$pb_hostname#g" droopy
   chmod +x droopy
 }
 
@@ -315,17 +313,10 @@ pb_start() {
 
 # PirateBox Welcome HTML
 local html=$(cat <<EOF
-<p><br>
-  <b>1.</b> Learn more about the project
-    <a href="http://$pb_hostname:8001/.READ.ME.htm"><b>here</b></a>.
-</p>
-<p>
-  <b>2.</b> Click above to begin sharing.
-</p>
-<p>
-  <b>3.</b> Browse and download files
-  <a href="http://$pb_hostname:8001"><b>here</b></a>.
-</p>
+<ol><li>Learn more about the project \
+    <a href="/READ.ME.htm"><b>here</b></a>.</li> \
+    <li>Click above to begin sharing.</li> \
+    <li>Browse and download files.</li></ol>
 EOF
 )
 
@@ -337,11 +328,7 @@ EOF
     -m -b -- \
     /usr/local/bin/droopy \
     -p "$pb_share/piratebox-logo.png" \
-    -d "$pb_share" -m "$html"
-  start-stop-daemon -S -x python \
-    -p /var/run/${NAME}.simple.pid \
-    -c nobody:nogroup -m -b -- \
-    -m SimpleHTTPServer 8001
+    -d "$pb_share/browse/" -m "$html"
 }
 
 pb_stop() {

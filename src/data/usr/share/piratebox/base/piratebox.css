@@ -1,0 +1,151 @@
+/* @override http://emma.local:8080/piratebox.css */
+
+body {
+	margin: 0;
+	border: 0;
+	padding: 0px;
+	background-color: #fafafa;
+	text-align: center;
+	font-size: 0.9em;
+	font-family: sans-serif;
+	padding-top: 20px;
+}
+
+a {
+	color: #993535;
+}
+
+/*#wrap {width: 500px; padding: 0px; margin: auto;
+       border: 1px dashed #ccc; background-color: white;}*/
+
+#wrapform {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 12px 0 0;
+	text-align: center;
+	margin: 0;
+	border: 0;
+	background: #a0a0a0;
+    background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.0, #888),
+	    color-stop(1.0, #bbb)
+	);
+}
+
+#form {
+	margin: 0 auto;
+	padding: 0;
+	width: 300px;
+}
+
+#sending {
+	display: none;
+}
+
+#progress {
+	display: inline;
+	border-collapse: separate;
+	empty-cells: show;
+	border-spacing: 6px 0;
+	padding: 0;
+	vertical-align: bottom;
+}
+
+#progress td {
+	height: 15px;
+	width: 13px;
+	background-color: #eee;
+	border: 1px solid #666;
+	padding: 0px;
+}
+
+#picture {
+	margin: 0;
+	border: 0;
+	position: absolute;
+	top: 48px;
+	left: 25px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	padding: 10px;
+}
+
+#message {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	left: 25px;
+	top: 255px;
+	font-family: sans-serif;
+	font-size: 1.0em;
+	width: 246px;
+	text-align: left;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: #eee;
+}
+
+#message ol {
+	margin: 0;
+	font-weight: bold;
+	padding: 0;
+	list-style: none;
+}
+
+#message li {
+	margin: 0;
+	padding: 10px;
+	border-top: 1px solid #ddd;
+	font-weight: normal;
+}
+
+#linkurl {
+	font-size: 0.8em;
+	text-align: center;
+	padding: 5px;
+	float: right;
+	background-color: orange;
+	margin-top: 13px;
+	width: 100%%;
+}
+
+#linkurl a {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#linkurl a:hover {
+	text-decoration: underline;
+}
+
+.box {
+	position: absolute;
+	left: 300px;
+	top: 70px;
+	right: 30px;
+	text-align: left;
+}
+.box table {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.box td {
+	border-bottom: 1px solid #ddd;
+	padding: 5px 5px;
+}
+
+.box td.size {
+	color: #888;
+	font-size: 0.8em;
+	text-align: right;
+}
